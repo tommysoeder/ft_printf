@@ -1,7 +1,6 @@
 #include <unistd.h>
 #include <stdarg.h>
-
-int	ft_puthex_base_count(unsigned int n, char *base);
+#include "ft_printf.h"
 
 int handle_hex_upper(va_list args)
 {

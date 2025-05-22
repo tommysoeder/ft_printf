@@ -1,6 +1,14 @@
 NAME = ft_printf 
 
-SRCS = ft_printf.c handle_string.c handle_char.c handle_integer.c handle_unsigned.c handle_hex_lower.c handle_hex_upper.c main.c
+SRCS = ft_printf.c \
+main.c \
+handle_string.c \
+handle_char.c \
+handle_integer.c \
+handle_unsigned.c \
+handle_hex_lower.c \
+handle_hex_upper.c \
+hex_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
