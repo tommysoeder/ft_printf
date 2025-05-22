@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomamart <tomamart@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: tomamart <tomamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:02:22 by tomamart          #+#    #+#             */
-/*   Updated: 2025/05/19 16:12:58 by tomamart         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:34:25 by tomamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,4 @@ int	main(void)
 	}
 	printf("Resultado: %s\n", resultado);
 	free(resultado);
-}
-*/
+}*/

@@ -6,45 +6,15 @@
 /*   By: tomamart <tomamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:02:27 by tomamart          #+#    #+#             */
-/*   Updated: 2025/05/21 21:57:19 by tomamart         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:50:24 by tomamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft/libft.h"
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdio.h>
 
-int	ft_putnbr_count(int n)
-{
-	int		count = 0;
-	long	nb = n;
-	char	c;
-
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-		count++;
-	}
-	if (nb >= 10)
-		count += ft_putnbr_count(nb / 10);
-	c = (nb % 10) + '0';
-	write(1, &c, 1);
-	return (count + 1);
-}
-
-int	ft_putunbr_count(unsigned int n)
-{
-	int count = 0;
-	char c;
-
-	if (n >= 10)
-		count += ft_putunbr_count(n / 10);
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-	return (count + 1);
-}
 int	ft_puthex_ptr(unsigned long n)
 {
 	int count = 0;
@@ -56,15 +26,6 @@ int	ft_puthex_ptr(unsigned long n)
 	return (count + 1);
 }
 
-int	ft_puthex_base_count(unsigned int n, char *base)
-{
-	int count = 0;
-
-	if (n >= 16)
-		count += ft_puthex_base_count(n / 16, base);
-	write(1, &base[n % 16], 1);
-	return (count + 1);
-}
 int	ft_printf(char const *format, ...)
 {
 	int	i;
@@ -85,33 +46,11 @@ int	ft_printf(char const *format, ...)
 		{
 			i++;
 			if(format[i] == 's')
-			{
-				char *str = va_arg(args, char *);
-				if (!str)
-					str = "(null)";
-				int j = 0;
-				while (str[j])
-				{
-					write(1, &str[j], 1);
-					j++;
-				}
-				total += j;
-			}
+				total += handle_string(args);
 			else if(format[i] == 'c')
-			{
-				char	c;
-				
-				c = (char)va_arg(args, int);
-				ft_putchar_fd(c, 1);
-				total++;
-			}
+				total += handle_char(args);
 			else if(format[i] == 'd' || format[i] == 'i')
-			{
-				int	d;
-				
-				d = va_arg(args, int);
-				total += ft_putnbr_count(d);
-			}
+				total += handle_integer(args);
 			else if(format[i] == 'p')
 			{
 				void	*ptr;
@@ -123,19 +62,9 @@ int	ft_printf(char const *format, ...)
 				total += 2 + ft_puthex_ptr(addr);
 			}
 			else if(format[i] == 'u')
-			{
-				unsigned int	u;
-				
-				u = va_arg(args, unsigned int);
-				total += ft_putunbr_count(u);
-			}
+				total += handle_unsigned(args);
 			else if(format[i] == 'x')
-			{
-				unsigned int	x;
-				
-				x = va_arg(args, unsigned int);
-				total += ft_puthex_base_count(x, "0123456789abcdef");
-			}
+				total += handle_hex_lower(args);
 			else if(format[i] == 'X')
 			{
 				unsigned int	X;
