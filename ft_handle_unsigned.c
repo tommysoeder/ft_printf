@@ -14,7 +14,7 @@ int	ft_putunbr_count(unsigned int n)
 	return (count + 1);
 }
 
-int	handle_unsigned(va_list args)
+int	ft_handle_unsigned(va_list args)
 {
 	unsigned int	u;
 				

@@ -22,7 +22,7 @@ int	ft_putnbr_count(int n)
 	return (count);
 }
 
-int	handle_integer(va_list args)
+int	ft_handle_integer(va_list args)
 {
 	int	d;
 

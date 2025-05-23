@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include "ft_printf.h"
 
-int handle_hex_lower(va_list args)
+int ft_handle_hex_lower(va_list args)
 {
 	unsigned int	x;
 				

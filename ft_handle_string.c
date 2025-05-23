@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int	handle_string(va_list args)
+int	ft_handle_string(va_list args)
 {
 	char *str;
 	int	count;
