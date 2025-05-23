@@ -6,7 +6,7 @@
 /*   By: tomamart <tomamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:32:53 by tomamart          #+#    #+#             */
-/*   Updated: 2025/05/23 15:31:07 by tomamart         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:02:17 by tomamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_handle_pointer(va_list args)
 
 	ptr = (void *)va_arg(args, void *);
 	if (!ptr)
-		return (write(1, "0x0", 3));
+		return (write(1, "(nil)", 3));
 	addr = (unsigned long)ptr;
 	count = write(1, "0x", 2);
 	count += ft_puthex_ptr(addr);
