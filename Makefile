@@ -1,7 +1,6 @@
-NAME = ft_printf 
+NAME = libftprintf.a
 
 SRCS = ft_printf.c \
-main.c \
 ft_handle_format.c \
 ft_handle_string.c \
 ft_handle_char.c \
@@ -15,8 +14,9 @@ ft_handle_percent.c \
 
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -26,7 +26,7 @@ INCLUDES = -I$(LIBFT_DIR)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -I$(LIBFT_DIR) -o $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
