@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_hex_upper.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomamart <tomamart@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: tomamart <tomamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:32:39 by tomamart          #+#    #+#             */
-/*   Updated: 2025/05/23 12:32:40 by tomamart         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:10:53 by tomamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_handle_hex_upper(va_list args)
 	unsigned int	x;
 
 	x = va_arg(args, unsigned int);
-	return (ft_puthex_base_count(X, "0123456789ABCDEF"));
+	return (ft_puthex_base_count(x, "0123456789ABCDEF"));
 }
