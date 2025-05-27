@@ -6,7 +6,7 @@
 /*   By: tomamart <tomamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:02:27 by tomamart          #+#    #+#             */
-/*   Updated: 2025/05/23 15:08:44 by tomamart         ###   ########.fr       */
+/*   Updated: 2025/05/27 10:41:15 by tomamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_printf(char const *format, ...)
 	va_start(args, format);
 	i = 0;
 	total = 0;
+	if (!format)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -34,8 +36,6 @@ int	ft_printf(char const *format, ...)
 		else
 		{
 			i++;
-			if (!format[i])
-				break ;
 			total += ft_handle_format(format[i], args);
 		}
 		i++;
